@@ -1,0 +1,134 @@
+
+#Question 1
+num = int(input("Pick a number"))
+
+status = None
+
+if num % = 0 :
+    return status = "Even"
+
+else :
+    return status = "Odd"
+
+print(status)
+print(num)
+
+for i in range(9):
+    num +2
+    print(num)
+
+
+#Question 2
+# Assume values of x
+x_values = [-1, 1, 2, 3, 4, 5] 
+v for x in x_values:
+ # Calculate the value of the quadratic function
+ y = x**2 + 2*x + 1
+ print('x={0} y={1}'.format(x, y))
+
+
+
+
+#Question 3
+def sum_data(filename):
+    s = 0
+    with open(filename) as f:
+        for line in f:
+            s = s + float(line) 
+    print('Sum of the numbers: {0}'.format(s))
+
+if __name__ == '__main__':
+    sum_data('mydata.txt')
+
+
+
+def read_data(filename):
+    numbers = []
+    with open(filename) as f:
+        for line in f:
+            numbers.append(float(line)) 
+    
+    return numbers
+
+def calculate_mean(numbers):
+    s = sum(numbers)
+    N = len(numbers)
+    mean = s/N
+    return mean
+
+
+if __name__ == '__main__':
+    data = read_data('mydata.txt') 
+    mean = calculate_mean(data)
+    print('Mean: {0}'.format(mean))
+
+
+
+#Question 4
+
+from sympy import Symbol, Poly, solve, solve_univariate_inequality, sin, solve_rational_inequalities, solve_rational_inequalities
+
+def solvepolyfunction(expr):
+     #Solve Polynomial
+    x = Symbol('x')
+    expr = -x**2 + 4 < 0 
+    #, extract the left side of the inequality—that is, the algebraic expression −x2 + 4—using the  lhs attribute at        lhs = ineq_obj.lhs
+    p = Poly(lhs, x)
+    rel = ineq_obj.rel_op
+    solve_poly_inequality(p, rel)
+
+def solverationalinequalityfunction (expr):
+    x = Symbol('x')
+    ineq_obj = expr
+    lhs = ineq_obj.lhs
+    numer, denom = lhs.as_numer_denom()
+    p1 = Poly(numer)
+    p2 = Poly(denom)
+    rel = ineq_obj.rel_op
+    solve_rational_inequalities([[((p1, p2), rel)]])
+
+
+def solveotherinequalityfunction (expr):
+
+    x = Symbol('x')
+    expr = ineq_obj
+    ineq_obj = sin(x) - 0.6 > 0
+    solve_univariate_inequality(ineq_obj, x, relational=False)
+
+
+#Master function which calls the above three functions in the ( hopefully ) appropriate way, according to what type of inequality we are dealing with
+def isolve (inequality):
+    
+    # first we need to determine whether the function is polynomial,
+    # rational, or another type of inequality, then we can direct it to a sub function
+
+
+    expr = input("Please input your expression")
+
+    if expr.is_polynomial() == True :
+        solvepolyfunction(expr)
+       
+    elif expr.is_rational_function() == True :
+        solverationalinequalityfunction (expr)
+
+    else : 
+        #inequality that belongs to neither the polynomial nor rational expression categories
+        solveotherinequalityfunction(expr)
+
+
+
+## QUESTION 5
+import random 
+
+min = 1
+max = 6
+sum = 0
+count = 10
+for i in range(count) :
+    x = random.randint(min,max)
+    sum += x
+
+print("Trial average is", sum/count)
+
+
+# Complete Question 6
