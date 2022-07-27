@@ -1,0 +1,23 @@
+
+
+#Question 1
+select max(distance) AS flight from flights ;
+#Question 2
+select engine, count(engine), seats, model from planes group by (engine) order by seats desc;
+#Question 3
+select count(flight) from flights ;
+#Question 4
+select carrier, count(flight) from flights GROUP BY carrier;
+#Question 5
+select carrier, count(flight) from flights GROUP BY carrier ORDER BY count(flight) DESC ;
+# Question 6
+select flight, carrier from flights group by carrier order by flight desc limit 5;
+#Question 7
+select flight, carrier from flights where distance > 1000 group by carrier  order by flight desc limit 5;
+#Question 8
+#Show all of the airlines, ordered by number of flights in ascending order
+select flight, carrier from flights group by carrier order by flight asc ;
+
+
+
+
