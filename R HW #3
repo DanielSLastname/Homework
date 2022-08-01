@@ -1,0 +1,69 @@
+
+
+#R HW #3
+install.packages("tidyverse")
+library(tidyverse)
+
+
+#Set Directory
+df <- read_csv("CigarettesB.csv")
+df
+
+#Q1
+
+
+mean(df$packs)
+median(df$packs)
+sd(df$packs)
+quantile(df$packs, 0.25)
+quantile(df$packs, 0.50)
+quantile(df$packs, 0.75)
+
+mean(df$price)
+median(df$price)
+sd(df$price)
+quantile(df$price, 0.25)
+quantile(df$price, 0.50)
+quantile(df$price, 0.75)
+
+
+mean(df$income)
+median(df$income)
+sd(df$income)
+quantile(df$income, 0.25)
+quantile(df$income, 0.50)
+quantile(df$income, 0.75)
+
+
+
+#Q2
+#Create subset of data, and also re-name columns
+dff <- data.frame(df$packs,df$price,df$income)
+dff
+colnames(dff) <- c("Cig_packs", "Cig_packs_price", "Consumer_income")
+dff['Spend'] <- dff$Cig_packs * dff$Cig_packs_price
+dff
+
+
+#Q3
+#scatterplot
+plot(x=dff$Consumer_income,y=dff$Spend)
+#histogram
+hist(dff$Cig_packs_price)
+
+#Boxplot
+boxplot(dff$Spend,
+        main = "Spend on Cigarettes",
+        
+        ylab = "Hundreds of Dollars"
+)
+
+
+#Q4
+#Does Spend on Cigarettes increase with higher income?
+plot(x=dff$Consumer_income,y=dff$Spend)
+cor(dff$Consumer_income,dff$Spend)
+
+# both the scatterplot and the correlation seem to indicate there is a somewhat positive relationship between the two variables
+
+
